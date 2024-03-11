@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>G A T E W A Y</title>
+    <style>
+        @font-face {
+            font-family: 'ibm';
+            src: url('https://saweria.co/ibm-plex-mono-latin-400.woff');
+        }
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'ibm';
+        }
+
+        body
+        {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 10px;
+            background: #E2E8F0;
+        }
+
+        .gateway
+        {
+            position: relative;
+            max-width: 600px;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        .gateway span 
+        {
+            margin-bottom: 20px;
+        }
+
+        .gateway .form
+        {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 0 20px;
+        }
+
+        
+        .gateway .response
+        {
+            position: relative;
+            width: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 0 20px;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        .response textarea
+        {
+            width: 100%;
+            padding-left: 5px;
+            background: #A0AEC0;
+            box-shadow: 0.4rem 0.4rem 0 #222;
+            border: 1px solid #000;
+        }
+
+        .form  label
+        {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label input
+        {
+            width: 100%;
+            border: 1px solid #000;
+            border-radius: 5px;
+            height: 30px;
+            padding-left: 5px;
+            background: #A0AEC0;
+            box-shadow: 0.4rem 0.4rem 0 #222;
+        }
+
+        label textarea
+        {
+            padding-left: 5px;
+            border-radius: 5px;
+            background: #A0AEC0;
+            box-shadow: 0.4rem 0.4rem 0 #222;
+            border: 1px solid #000;
+        }
+
+        *:focus
+        {
+            outline: none;
+        }
+
+        .form button
+        {
+            padding: 5px 10px;
+            margin-top: 10px;
+            background: #faae2b;
+            box-shadow: 0.4rem 0.4rem 0 #222;
+            border: 1px solid #000;
+            border-radius: 3px;
+        }
+
+        .gateway .source
+        {
+            position: fixed;
+            top: 5px;
+            right: 10px;
+            padding: 5px 10px;
+            margin-top: 10px;
+            background: pink;
+            box-shadow: 0.4rem 0.4rem 0 #222;
+            border: 1px solid #000;
+            border-radius: 3px;
+        }
+
+        footer
+        {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scode
+        {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            height: 100%;
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        .scode textarea
+        {
+            margin-top: 20px;
+            width: 100%;
+            height: 100%;
+            padding-left: 5px;
+            border-radius: 5px;
+            background: #A0AEC0;
+            box-shadow: 0.4rem 0.4rem 0 #222;
+            border: 1px solid #000;
+        }
+
+        .scode i
+        {
+            position: fixed;
+            top: 5px;
+            right: 10px;
+            padding: 5px 10px;
+            margin-top: 10px;
+            background: pink;
+            box-shadow: 0.4rem 0.4rem 0 #222;
+            border: 1px solid #000;
+            border-radius: 3px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="gateway">
+        <div onclick="toggleSource()" class="source">VIEW SOURCE</div>
+        <h1>G A T E W A Y</h1>
+        <span>Gunakan dengan bijak ya maniezz</span>
+
+        <div class="form">
+            <label>
+                No
+                <input class="aq" id="no">
+            </label>
+            
+            <label>
+                Pesan
+                <textarea class="aq" rows="10" id="msg"></textarea>
+            </label>
+
+            <button>Kirim</button>
+        </div>
+
+        <div class="response">
+            <span>Response</span>
+            <textarea rows="10" id="resp" readonly></textarea>
+        </div>
+    </div>
+
+    <div class="scode">
+        <i onclick="toggleSource()">↩</i>
+        <h1>Source Code</h1>
+        <span>Jangan Bikin Yang Aneh2</span>
+        <textarea rows="20">
+<?php
+// Maded With ❤︎ By Al Ihwan
+// Gunakan Dengan Bijak Ya
+
+$url = "https://paradox88.my.id/gateway?no=6285175261522&msg=Hello";
+
+$curl = curl_init($url);
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+//for debug only!
+curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
+$resp = curl_exec($curl);
+curl_close($curl);
+var_dump($resp);
+?>
+
+        </textarea>
+
+
+
+
+    </div>
+
+    <footer>
+        Crafted By <a href="https://facebook.com/nguyenxwann" style="text-decoration: none;margin: 0 10px"> Al Ihwan </a> With <img width="20" height="20" src="https://cdn.icon-icons.com/icons2/2699/PNG/512/expressjs_logo_icon_169185.png" style="margin-left: 10px">
+    </footer>
+
+
+    <script>
+        let status = "hide";
+        let btn = document.querySelector('button');
+
+        btn.addEventListener('click', e => {
+            let no = document.getElementById("no").value;
+            let msg = document.getElementById("msg").value;
+            let resp = document.getElementById("resp");
+
+            if(no == "") return document.getElementById("no").focus()
+            if(msg == "") return document.getElementById("msg").focus()
+
+            e.target.innerHTML = 'Mengirim <i class="fa fa-spinner fa-spin"></i>';
+            document.querySelector(".response").style.display = 'none';
+
+            fetch('https://paradox88.my.id/gateway/?no='+no+'&msg='+msg).then(res => res.json().then(f => {
+                resp.value = JSON.stringify(f, undefined, 4);
+                document.querySelector(".response").style.display = 'flex';
+                e.target.innerHTML = "Kirim";
+            }));
+        })
+
+
+        function toggleSource()
+        {
+            let element = document.querySelector(".scode");
+
+            if(status == "hide")
+            {
+                element.style.display = "flex";
+                status = "show";
+            } else {
+                element.style.display = "none";
+                status = "hide";
+            }
+
+        }
+    </script>
+</body>
+</html>
