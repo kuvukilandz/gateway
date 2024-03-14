@@ -26,7 +26,7 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            padding: 10px;
+            padding: 0 20px;
             background: #E2E8F0;
         }
 
@@ -56,7 +56,7 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 10px;
-            padding: 0 20px;
+            padding: 0 10px;
         }
 
         
@@ -71,6 +71,43 @@
             padding: 0 20px;
             margin-top: 30px;
             gap: 10px;
+        }
+
+        .gateway .progress
+        {
+            position: relative;
+            width: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 0 40px;
+        }
+
+        .progress progress
+        {
+            width: 100%;
+            border: 1px solid #000;
+            border-radius: 5px;
+            height: 15px;
+            background: #8bd3dd;
+            box-shadow: 0.2rem 0.2rem 0 #222;
+            color: #fff;
+        }
+
+        .progress i 
+        {
+            font-size: 12px;
+        }
+
+        progress::-moz-progress-bar
+        {
+            background: #8bd3dd;
+        }
+        progress::-webkit-progress-value 
+        {
+            background: #8bd3dd;
+            border-radius: 5px;
         }
 
         .response textarea
@@ -137,6 +174,18 @@
             border: 1px solid #000;
             border-radius: 3px;
         }
+        .gateway .save
+        {
+            position: fixed;
+            top: 5px;
+            left: 10px;
+            padding: 5px 10px;
+            margin-top: 10px;
+            background: #9DBC98;
+            box-shadow: -0.4rem 0.4rem 0 #222;
+            border: 1px solid #000;
+            border-radius: 3px;
+        }
 
         footer
         {
@@ -193,7 +242,12 @@
     <div class="gateway">
         <div onclick="toggleSource()" class="source">VIEW SOURCE</div>
         <h1>G A T E W A Y</h1>
-        <span>Mampus delaynya 20 detik, biar lu gk bsa spam kntl</span>
+        <span>Mampus delaynya 20 detik, biar lo gk spam anjing</span>
+
+        <div class="progress">
+            <i>Pesan anda akan dikirim dalam <b id="detik">20</b> detik</i>
+            <progress value="0" max="20"></progress>
+        </div>
 
         <div class="form">
             <label>
@@ -247,7 +301,7 @@ var_dump($resp);
     </div>
 
     <footer>
-        Crafted By <a href="https://facebook.com/nguyenxwann" style="text-decoration: none;margin: 0 10px"> Al Ihwan </a> With <img width="20" height="20" src="https://cdn.icon-icons.com/icons2/2699/PNG/512/expressjs_logo_icon_169185.png" style="margin-left: 10px">
+        Crafted By <a href="https://wa.me/6285175261522" style="text-decoration: none;margin: 0 10px"> Al Ihwan </a> With <img width="20" height="20" src="https://cdn.icon-icons.com/icons2/2699/PNG/512/expressjs_logo_icon_169185.png" style="margin-left: 10px">
     </footer>
 
 
@@ -256,6 +310,7 @@ var_dump($resp);
         let btn = document.querySelector('button');
 
         btn.addEventListener('click', e => {
+            makeTimeout()
             let no = document.getElementById("no").value;
             let msg = document.getElementById("msg").value;
             let resp = document.getElementById("resp");
@@ -286,6 +341,36 @@ var_dump($resp);
                 element.style.display = "none";
                 status = "hide";
             }
+
+        }
+
+
+        function makeTimeout()
+        {
+
+            document.querySelector('.progress').style.display = 'flex';
+            let val = 0;
+            let sec = 20;
+
+            let interval = setInterval(() => {
+
+                document.getElementById("detik").innerText = sec;
+                document.querySelector("progress").setAttribute('value', val);
+
+                if(val == 20)
+                {
+                    val = 0;
+                    sec = 20;
+                    document.getElementById("detik").innerText = 20;
+                    document.querySelector("progress").setAttribute('value', 0);
+                    clearInterval(interval);
+                    document.querySelector('.progress').style.display = 'none';
+                }
+
+                val++;
+                sec--;
+
+            }, 1000)
 
         }
     </script>
